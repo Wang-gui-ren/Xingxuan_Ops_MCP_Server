@@ -1,0 +1,12 @@
+name: astrbot_plugin_xingxuan_mcp_approvals
+display_name: 星璇运维MCP Approvals Command
+desc: Map AstrBot /approvals to 星璇运维MCP open_approval_console_tool without entering the LLM pipeline.
+short_desc: Open the 星璇运维MCP approval console from AstrBot.
+version: 0.4.1
+author: 星璇运维MCP
+support_platforms:
+  - webchat
+  - aiocqhttp
+  - telegram
+  - discord
+astrbot_version: ">=4.25.0"

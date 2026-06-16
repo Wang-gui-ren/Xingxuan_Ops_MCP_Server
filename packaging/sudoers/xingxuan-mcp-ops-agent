@@ -1,0 +1,12 @@
+# 星璇运维MCP ops-agent sudoers reference for Linux / Kylin V11.
+# Review with `visudo -cf` before installing. Do not broaden these commands.
+
+Defaults:ops-agent !requiretty
+
+Cmnd_Alias XINGXUAN_MCP_NGINX_STATUS = /usr/bin/systemctl status nginx
+Cmnd_Alias XINGXUAN_MCP_NGINX_RESTART = /usr/bin/systemctl restart nginx
+Cmnd_Alias XINGXUAN_MCP_FIREWALL_8080_ADD = /usr/bin/firewall-cmd --add-port=8080/tcp
+Cmnd_Alias XINGXUAN_MCP_FIREWALL_8080_REMOVE = /usr/bin/firewall-cmd --remove-port=8080/tcp
+Cmnd_Alias XINGXUAN_MCP_APP_CONF_CHMOD = /usr/bin/chmod 0640 /opt/xingxuan-mcp-demo/app.conf
+
+ops-agent ALL=(root) NOPASSWD: XINGXUAN_MCP_NGINX_STATUS, XINGXUAN_MCP_NGINX_RESTART, XINGXUAN_MCP_FIREWALL_8080_ADD, XINGXUAN_MCP_FIREWALL_8080_REMOVE, XINGXUAN_MCP_APP_CONF_CHMOD

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">审批与审计可信闭环</title>
+  <desc id="desc">展示审批账本、审计 JSONL、哈希链、轮转、索引和锚点同步形成可信闭环。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f9ff"/>
+      <stop offset="100%" stop-color="#f7fcf7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font: 700 30px "Microsoft YaHei", Arial, sans-serif; fill: #102033; }
+      .subtitle { font: 500 16px "Microsoft YaHei", Arial, sans-serif; fill: #536172; }
+      .box { fill: #ffffff; stroke: #c8d8ea; stroke-width: 1.5; rx: 18; filter: url(#shadow); }
+      .blue { fill: #f4f8ff; stroke: #9ec5ff; stroke-width: 1.7; rx: 18; filter: url(#shadow); }
+      .green { fill: #f3fff8; stroke: #85d6a8; stroke-width: 1.7; rx: 18; filter: url(#shadow); }
+      .label { font: 700 21px "Microsoft YaHei", Arial, sans-serif; fill: #14243a; }
+      .text { font: 500 15px "Microsoft YaHei", Arial, sans-serif; fill: #526174; }
+      .tiny { font: 500 13px "Microsoft YaHei", Arial, sans-serif; fill: #667386; }
+      .line { stroke: #2563eb; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .gline { stroke: #0f9f80; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1280" height="760" fill="url(#bg)"/>
+  <text x="60" y="62" class="title">审批结果可信到审批账本、审计账本也可信</text>
+  <text x="60" y="92" class="subtitle">从 approval_id 到 audit hash chain，再到 Anchor Sink 的生产化存证路径</text>
+
+  <rect x="80" y="160" width="220" height="135" class="blue"/>
+  <text x="112" y="205" class="label">审批申请</text>
+  <text x="112" y="238" class="text">request_operation_approval</text>
+  <text x="112" y="266" class="text">scope_hash / expires_at</text>
+
+  <rect x="380" y="140" width="245" height="175" class="blue"/>
+  <text x="415" y="185" class="label">审批账本</text>
+  <text x="415" y="219" class="text">append-only JSONL</text>
+  <text x="415" y="247" class="text">多级审批 / 生命周期</text>
+  <text x="415" y="275" class="text">prev_hash / event_hash</text>
+
+  <rect x="705" y="140" width="245" height="175" class="green"/>
+  <text x="740" y="185" class="label">审计日志</text>
+  <text x="740" y="219" class="text">tool_call / guardrail_decision</text>
+  <text x="740" y="247" class="text">approval_* / tool_result</text>
+  <text x="740" y="275" class="text">trace_id / session_id</text>
+
+  <rect x="1030" y="160" width="180" height="135" class="green"/>
+  <text x="1060" y="205" class="label">执行结果</text>
+  <text x="1060" y="238" class="text">post_checks</text>
+  <text x="1060" y="266" class="text">rollback_hint</text>
+
+  <rect x="110" y="455" width="245" height="150" class="box"/>
+  <text x="142" y="500" class="label">日志轮转</text>
+  <text x="142" y="534" class="text">audit-YYYYMMDD-N.jsonl</text>
+  <text x="142" y="562" class="text">manifest / retention report</text>
+
+  <rect x="430" y="455" width="245" height="150" class="box"/>
+  <text x="462" y="500" class="label">集中查询索引</text>
+  <text x="462" y="534" class="text">SQLite 可重建索引</text>
+  <text x="462" y="562" class="text">trace / approval / risk 查询</text>
+
+  <rect x="750" y="455" width="245" height="150" class="box"/>
+  <text x="782" y="500" class="label">锚点同步</text>
+  <text x="782" y="534" class="text">anchors.jsonl + HMAC</text>
+  <text x="782" y="562" class="text">HTTP Anchor Sink</text>
+
+  <rect x="1070" y="455" width="140" height="150" class="box"/>
+  <text x="1094" y="500" class="label">复核</text>
+  <text x="1094" y="534" class="text">verify chain</text>
+  <text x="1094" y="562" class="text">verify anchor</text>
+
+  <path class="line" d="M300 228 C330 228 350 228 380 228"/>
+  <path class="line" d="M625 228 C655 228 675 228 705 228"/>
+  <path class="line" d="M950 228 C980 228 1000 228 1030 228"/>
+  <path class="gline" d="M827 315 C730 405 370 410 232 455"/>
+  <path class="line" d="M355 530 C385 530 400 530 430 530"/>
+  <path class="line" d="M675 530 C705 530 720 530 750 530"/>
+  <path class="line" d="M995 530 C1025 530 1040 530 1070 530"/>
+  <path class="gline" d="M1138 455 C1075 380 960 335 872 315"/>
+  <text x="90" y="690" class="tiny">外部上传只包含锚点摘要，不上传完整敏感审计事件；远端失败不阻断本地审计，但必须产生 audit_anchor_sync_failed 事件。</text>
+</svg>

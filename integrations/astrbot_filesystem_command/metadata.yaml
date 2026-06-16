@@ -1,0 +1,12 @@
+name: astrbot_plugin_xingxuan_mcp_filesystem
+display_name: 星璇运维MCP Deterministic Ops Bridge
+desc: Route a small set of deterministic local ops requests to 星璇运维MCP without entering the LLM pipeline.
+short_desc: Handle high-frequency local ops intents through MCP even when the model path is unavailable.
+version: 0.2.0
+author: 星璇运维MCP
+support_platforms:
+  - webchat
+  - aiocqhttp
+  - telegram
+  - discord
+astrbot_version: ">=4.25.0"

@@ -1,0 +1,57 @@
+version: "1.0.0"
+
+default:
+  decision: allow_request
+  ttl_minutes: 60
+  max_renewals: 1
+  required_approvals: 1
+  require_distinct_approvers: true
+  allow_self_approval: false
+
+approvers:
+  trusted_ids: []
+  roles:
+    ops_admin:
+      - verify-admin
+    network_admin:
+      - approver-a
+      - approver-b
+
+rules:
+  - id: CRITICAL_DENY
+    match:
+      risk_level: critical
+    decision: deny_request
+    reason: "critical 风险不能通过审批放行"
+
+  - id: NETWORK_CHANGE_TWO_APPROVERS
+    match:
+      operation: network_policy_change
+    ttl_minutes: 30
+    required_approvals: 2
+    approver_roles:
+      - network_admin
+    reason: "网络策略变更需要两名网络审批人"
+
+  - id: SYSTEM_PATH_TWO_APPROVERS
+    match:
+      path_prefix:
+        - "/etc"
+        - "C:\\Windows"
+    ttl_minutes: 30
+    required_approvals: 2
+    approver_roles:
+      - ops_admin
+    reason: "系统路径变更需要双人审批"
+
+  - id: TEMP_FILE_SINGLE_APPROVER
+    match:
+      operation: modify_file
+      path_prefix:
+        - "%TEMP%"
+        - "/tmp"
+    ttl_minutes: 45
+    required_approvals: 1
+    approver_roles:
+      - ops_admin
+    reason: "临时文件修改保留单人审批"

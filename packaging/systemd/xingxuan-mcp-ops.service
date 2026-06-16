@@ -1,0 +1,26 @@
+[Unit]
+Description=星璇运维MCP operations MCP server reference service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ops-agent
+Group=ops-agent
+WorkingDirectory=/opt/xingxuan-mcp
+Environment=PYTHONPATH=/opt/xingxuan-mcp/src
+Environment=XINGXUAN_MCP_EXECUTION_AGENT_PROFILE=linux-kylin-ops-agent-v1
+Environment=XINGXUAN_MCP_ENABLE_PRIVILEGED_EXECUTION=false
+Environment=XINGXUAN_MCP_AUDIT_DIR=/var/lib/xingxuan-mcp/audit
+Environment=XINGXUAN_MCP_APPROVAL_DIR=/var/lib/xingxuan-mcp/approvals
+ExecStart=/usr/bin/python3 -m mcp_ops_server.main
+Restart=on-failure
+RestartSec=5s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=read-only
+ProtectSystem=strict
+ReadWritePaths=/var/lib/xingxuan-mcp /var/tmp/xingxuan_mcp
+
+[Install]
+WantedBy=multi-user.target

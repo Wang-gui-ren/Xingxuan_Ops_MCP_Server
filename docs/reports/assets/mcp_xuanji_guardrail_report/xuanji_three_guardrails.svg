@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">璇玑输入-内生-输出护栏实现</title>
+  <desc id="desc">展示璇玑大模型护栏的输入护栏、内生护栏、输出护栏和工具链护栏。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5f8ff"/>
+      <stop offset="100%" stop-color="#edf7ff"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#1d3150" flood-opacity="0.13"/>
+    </filter>
+    <style>
+      .title { font: 700 30px "Microsoft YaHei", Arial, sans-serif; fill: #102033; }
+      .subtitle { font: 500 16px "Microsoft YaHei", Arial, sans-serif; fill: #536172; }
+      .box { fill: #ffffff; stroke: #c8d8ea; stroke-width: 1.4; rx: 18; filter: url(#shadow); }
+      .guard { fill: #f7fbff; stroke: #87b8ff; stroke-width: 2; rx: 20; filter: url(#shadow); }
+      .inner { fill: #f4fff9; stroke: #83d4b5; stroke-width: 2; rx: 20; filter: url(#shadow); }
+      .label { font: 700 22px "Microsoft YaHei", Arial, sans-serif; fill: #12243a; }
+      .text { font: 500 15px "Microsoft YaHei", Arial, sans-serif; fill: #506174; }
+      .tiny { font: 500 13px "Microsoft YaHei", Arial, sans-serif; fill: #657386; }
+      .line { stroke: #2563eb; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .dline { stroke: #0f9f80; stroke-width: 2.2; stroke-dasharray: 8 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1280" height="760" fill="url(#bg)"/>
+  <text x="60" y="62" class="title">璇玑大模型护栏：输入护栏、内生护栏、输出护栏</text>
+  <text x="60" y="92" class="subtitle">GuardEngine + GuardRuntime + Tool Proxy 构成 Agent 推理链路的语义安全外壳</text>
+
+  <rect x="70" y="160" width="190" height="112" class="box"/>
+  <text x="100" y="204" class="label">用户输入</text>
+  <text x="100" y="236" class="text">自然语言任务</text>
+
+  <rect x="330" y="130" width="250" height="175" class="guard"/>
+  <text x="365" y="174" class="label">输入护栏</text>
+  <text x="365" y="208" class="text">Prompt Injection</text>
+  <text x="365" y="236" class="text">高风险请求 / 不安全意图</text>
+  <text x="365" y="264" class="text">有害内容与越权诱导</text>
+
+  <rect x="650" y="120" width="280" height="205" class="inner"/>
+  <text x="685" y="164" class="label">内生护栏</text>
+  <text x="685" y="198" class="text">动态安全上下文注入</text>
+  <text x="685" y="226" class="text">会话风险画像</text>
+  <text x="685" y="254" class="text">知识库演化与经验沉淀</text>
+  <text x="685" y="282" class="text">SafeDecoding / 安全提示</text>
+
+  <rect x="1000" y="160" width="210" height="112" class="box"/>
+  <text x="1030" y="204" class="label">LLM 推理</text>
+  <text x="1030" y="236" class="text">规划 / 调用工具 / 总结</text>
+
+  <rect x="330" y="440" width="250" height="170" class="guard"/>
+  <text x="365" y="484" class="label">工具输入护栏</text>
+  <text x="365" y="518" class="text">检查工具名与参数</text>
+  <text x="365" y="546" class="text">危险操作提前阻断</text>
+  <text x="365" y="574" class="text">可 rewrite 或 block</text>
+
+  <rect x="650" y="440" width="280" height="170" class="guard"/>
+  <text x="685" y="484" class="label">工具输出护栏</text>
+  <text x="685" y="518" class="text">检查工具返回内容</text>
+  <text x="685" y="546" class="text">脱敏 PII / token / secret</text>
+  <text x="685" y="574" class="text">阻断危险指导回显</text>
+
+  <rect x="1000" y="430" width="210" height="190" class="guard"/>
+  <text x="1030" y="474" class="label">输出护栏</text>
+  <text x="1030" y="508" class="text">最终回复审查</text>
+  <text x="1030" y="536" class="text">不安全输出阻断</text>
+  <text x="1030" y="564" class="text">敏感信息重写</text>
+
+  <rect x="70" y="455" width="190" height="140" class="box"/>
+  <text x="100" y="500" class="label">审计与演化</text>
+  <text x="100" y="532" class="text">audit/*.md</text>
+  <text x="100" y="560" class="text">raw/*.jsonl</text>
+
+  <path class="line" d="M260 216 C290 216 300 216 330 216"/>
+  <path class="line" d="M580 216 C610 210 620 205 650 205"/>
+  <path class="line" d="M930 216 C960 216 970 216 1000 216"/>
+  <path class="line" d="M1040 272 C970 360 660 372 580 455"/>
+  <path class="line" d="M580 525 C610 525 620 525 650 525"/>
+  <path class="line" d="M930 525 C960 524 970 524 1000 524"/>
+  <path class="dline" d="M455 440 C390 380 250 365 165 455"/>
+  <path class="dline" d="M790 440 C650 350 420 340 165 455"/>
+  <path class="dline" d="M1105 430 C920 360 450 330 165 455"/>
+  <text x="310" y="670" class="tiny">动作集合：allow / rewrite / block；风险信号沉淀为会话画像和知识库，参与下一轮内生约束。</text>
+</svg>

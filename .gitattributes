@@ -1,0 +1,51 @@
+# 自动规范化文本文件的行尾
+* text=auto
+
+# Python 文件
+*.py text eol=lf
+*.pyi text eol=lf
+
+# Shell 脚本
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Batch 文件保持 CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 配置文件
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+
+# 文档
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Web 文件
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.ts text eol=lf
+
+# SVG 作为文本处理
+*.svg text eol=lf
+
+# 二进制文件
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="780" viewBox="0 0 1280 780" role="img" aria-labelledby="title desc">
+  <title id="title">自研 MCP 与璇玑护栏总体架构</title>
+  <desc id="desc">展示 AstrBot、璇玑护栏、自研 MCP 运维 Server、受限执行代理、ToB 网关和审计存证之间的关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef6ff"/>
+      <stop offset="55%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#edf7f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font: 700 30px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #102033; }
+      .subtitle { font: 500 16px "Microsoft YaHei", Arial, sans-serif; fill: #536172; }
+      .box { fill: #ffffff; stroke: #c8d8ea; stroke-width: 1.5; rx: 18; filter: url(#shadow); }
+      .box2 { fill: #f7fbff; stroke: #b7d2f3; stroke-width: 1.5; rx: 18; }
+      .label { font: 700 21px "Microsoft YaHei", Arial, sans-serif; fill: #14243a; }
+      .text { font: 500 15px "Microsoft YaHei", Arial, sans-serif; fill: #526174; }
+      .tiny { font: 500 13px "Microsoft YaHei", Arial, sans-serif; fill: #68768a; }
+      .tag { fill: #e7f1ff; stroke: #9dc5ff; stroke-width: 1; rx: 12; }
+      .tagtext { font: 700 13px "Microsoft YaHei", Arial, sans-serif; fill: #1d5fbf; }
+      .line { stroke: #2563eb; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #0f9f80; stroke-width: 2; fill: none; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1280" height="780" fill="url(#bg)"/>
+  <text x="60" y="66" class="title">璇玑护栏驱动的自研 MCP 智能运维安全执行方案</text>
+  <text x="60" y="96" class="subtitle">语义护栏 + 确定性执行护栏 + 审批审计可信闭环</text>
+
+  <rect x="70" y="150" width="210" height="120" class="box"/>
+  <text x="100" y="188" class="label">运维人员</text>
+  <text x="100" y="220" class="text">自然语言请求</text>
+  <text x="100" y="246" class="tiny">故障排查 / 变更申请 / 审批</text>
+
+  <rect x="350" y="130" width="240" height="160" class="box"/>
+  <text x="385" y="170" class="label">AstrBot Agent</text>
+  <text x="385" y="202" class="text">对话编排与 MCP Client</text>
+  <rect x="385" y="225" width="76" height="26" class="tag"/><text x="405" y="243" class="tagtext">WebUI</text>
+  <rect x="472" y="225" width="82" height="26" class="tag"/><text x="492" y="243" class="tagtext">插件链</text>
+
+  <rect x="660" y="90" width="260" height="240" class="box"/>
+  <text x="695" y="132" class="label">璇玑大模型护栏</text>
+  <text x="695" y="164" class="text">输入护栏：注入与高风险意图</text>
+  <text x="695" y="192" class="text">内生护栏：动态上下文与演化</text>
+  <text x="695" y="220" class="text">输出护栏：PII 与危险指导</text>
+  <text x="695" y="248" class="text">工具链护栏：参数与结果审查</text>
+  <rect x="695" y="274" width="78" height="26" class="tag"/><text x="714" y="292" class="tagtext">allow</text>
+  <rect x="784" y="274" width="78" height="26" class="tag"/><text x="800" y="292" class="tagtext">block</text>
+
+  <rect x="990" y="130" width="220" height="160" class="box"/>
+  <text x="1020" y="170" class="label">大模型</text>
+  <text x="1020" y="202" class="text">计划生成 / 结果总结</text>
+  <text x="1020" y="230" class="tiny">不能直接越权执行系统命令</text>
+
+  <rect x="350" y="405" width="300" height="210" class="box"/>
+  <text x="385" y="448" class="label">自研 MCP 运维 Server</text>
+  <text x="385" y="482" class="text">Resources：OS 状态与主机画像</text>
+  <text x="385" y="510" class="text">Tools：只读诊断与写操作申请</text>
+  <text x="385" y="538" class="text">Prompts：SOP 与排障模板</text>
+  <text x="385" y="566" class="text">Guardrails：确定性安全意图校验</text>
+
+  <rect x="720" y="405" width="230" height="210" class="box"/>
+  <text x="750" y="448" class="label">审批与审计</text>
+  <text x="750" y="482" class="text">本地审批账本</text>
+  <text x="750" y="510" class="text">JSONL 审计哈希链</text>
+  <text x="750" y="538" class="text">轮转与 SQLite 查询</text>
+  <text x="750" y="566" class="text">Anchor Sink / HMAC</text>
+
+  <rect x="1000" y="405" width="210" height="210" class="box"/>
+  <text x="1030" y="448" class="label">ToB B/S 网关</text>
+  <text x="1030" y="482" class="text">审批台</text>
+  <text x="1030" y="510" class="text">配置管理</text>
+  <text x="1030" y="538" class="text">网关设置</text>
+  <text x="1030" y="566" class="text">审计生产化面板</text>
+
+  <rect x="70" y="450" width="210" height="130" class="box2"/>
+  <text x="100" y="492" class="label">目标系统</text>
+  <text x="100" y="526" class="text">Windows / Linux / 麒麟</text>
+  <text x="100" y="554" class="tiny">受限身份 + 固定模板执行</text>
+
+  <path class="line" d="M280 210 C310 210 320 210 350 210"/>
+  <path class="line" d="M590 210 C620 190 632 178 660 170"/>
+  <path class="line" d="M920 170 C950 172 960 178 990 190"/>
+  <path class="line" d="M990 245 C960 270 950 284 920 292"/>
+  <path class="line" d="M470 290 C470 340 480 360 500 405"/>
+  <path class="line" d="M650 510 C685 510 690 510 720 510"/>
+  <path class="line" d="M950 510 C970 510 980 510 1000 510"/>
+  <path class="line" d="M350 510 C320 510 310 512 280 515"/>
+  <path class="dash" d="M825 405 C825 360 800 345 790 330"/>
+  <text x="804" y="372" class="tiny">审计摘要回流</text>
+</svg>

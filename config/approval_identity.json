@@ -1,0 +1,24 @@
+{
+  "admin": {
+    "allowed_admin_roles": [
+      "mcp_security_admin"
+    ],
+    "require_admin_identity": true
+  },
+  "enterprise": {
+    "allowed_issuers": [],
+    "enable_enterprise_approval_token_issuer": false,
+    "enterprise_assertion_ttl_minutes": 10,
+    "required_approver_role": "ops_approver"
+  },
+  "identity": {
+    "approval_token_ttl_minutes": 15,
+    "require_approval_identity": false,
+    "require_approval_identity_scope": true
+  },
+  "schema_version": "approval-identity-config-v1",
+  "secrets": {
+    "approval_identity_secret_ref": null,
+    "enterprise_identity_assertion_secret_ref": null
+  }
+}

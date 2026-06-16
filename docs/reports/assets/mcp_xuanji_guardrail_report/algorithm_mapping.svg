@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="820" viewBox="0 0 1320 820" role="img" aria-labelledby="title desc">
+  <title id="title">关键算法与工程映射流程图</title>
+  <desc id="desc">展示文献算法思想如何映射到璇玑护栏、MCP 决策、审批验证、审计哈希链和 Anchor Sink。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eef6ff"/>
+      <stop offset="55%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#f1fbf7"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font: 700 30px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #102033; }
+      .subtitle { font: 500 16px "Microsoft YaHei", Arial, sans-serif; fill: #536172; }
+      .box { fill: #ffffff; stroke: #c8d8ea; stroke-width: 1.5; rx: 18; filter: url(#shadow); }
+      .blue { fill: #f4f8ff; stroke: #9ec5ff; stroke-width: 1.8; rx: 18; filter: url(#shadow); }
+      .green { fill: #f3fff8; stroke: #85d6a8; stroke-width: 1.8; rx: 18; filter: url(#shadow); }
+      .orange { fill: #fff9f0; stroke: #ffc36e; stroke-width: 1.8; rx: 18; filter: url(#shadow); }
+      .red { fill: #fff6f6; stroke: #ff9a9a; stroke-width: 1.8; rx: 18; filter: url(#shadow); }
+      .label { font: 700 20px "Microsoft YaHei", Arial, sans-serif; fill: #14243a; }
+      .text { font: 500 14px "Microsoft YaHei", Arial, sans-serif; fill: #526174; }
+      .formula { font: 600 13px "Consolas", "Cascadia Mono", monospace; fill: #334155; }
+      .tiny { font: 500 12px "Microsoft YaHei", Arial, sans-serif; fill: #667386; }
+      .line { stroke: #2563eb; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #0f9f80; stroke-width: 2.2; stroke-dasharray: 8 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1320" height="820" fill="url(#bg)"/>
+  <text x="58" y="62" class="title">关键算法与工程映射</text>
+  <text x="58" y="92" class="subtitle">从 ReAct/Toolformer 的工具循环，到璇玑分类护栏、MCP 规则决策、审计哈希链与锚点</text>
+
+  <rect x="70" y="145" width="230" height="140" class="box"/>
+  <text x="102" y="188" class="label">用户请求 x</text>
+  <text x="102" y="222" class="text">自然语言运维意图</text>
+  <text x="102" y="250" class="formula">trace_id, session_id</text>
+
+  <rect x="370" y="120" width="260" height="190" class="blue"/>
+  <text x="404" y="162" class="label">璇玑语义分类</text>
+  <text x="404" y="196" class="formula">p(y_k | x, taxonomy)</text>
+  <text x="404" y="224" class="formula">risk = max_k p(y_k | x)</text>
+  <text x="404" y="254" class="text">allow / rewrite / block</text>
+  <text x="404" y="280" class="tiny">Llama Guard 类输入/输出分类思想</text>
+
+  <rect x="710" y="120" width="260" height="190" class="orange"/>
+  <text x="744" y="162" class="label">ReAct / Toolformer</text>
+  <text x="744" y="196" class="formula">T_t -> A_t -> O_t</text>
+  <text x="744" y="224" class="formula">Delta L = L_no_tool - L_tool</text>
+  <text x="744" y="254" class="text">模型倾向调用工具解决任务</text>
+  <text x="744" y="280" class="tiny">因此必须限制工具边界</text>
+
+  <rect x="1040" y="145" width="220" height="140" class="red"/>
+  <text x="1070" y="188" class="label">越狱风险</text>
+  <text x="1070" y="222" class="formula">argmax_delta log p(y*|x||delta)</text>
+  <text x="1070" y="250" class="text">对抗后缀可诱导拒绝失效</text>
+
+  <rect x="230" y="430" width="270" height="180" class="green"/>
+  <text x="264" y="472" class="label">MCP 确定性规则</text>
+  <text x="264" y="506" class="formula">R = max(rule_risk_i)</text>
+  <text x="264" y="534" class="text">critical: deny</text>
+  <text x="264" y="562" class="text">high: approval required</text>
+  <text x="264" y="588" class="tiny">命令、路径、权限、服务、网络策略</text>
+
+  <rect x="570" y="430" width="260" height="180" class="green"/>
+  <text x="604" y="472" class="label">审批范围验证</text>
+  <text x="604" y="506" class="formula">scope_hash = H(tool, op, target, params)</text>
+  <text x="604" y="534" class="text">状态、过期、审批人、范围均匹配</text>
+  <text x="604" y="562" class="text">critical 不可审批绕过</text>
+
+  <rect x="900" y="430" width="300" height="180" class="blue"/>
+  <text x="934" y="472" class="label">审计哈希链与锚点</text>
+  <text x="934" y="506" class="formula">h_i = SHA256(canon(e_i)||h_{i-1})</text>
+  <text x="934" y="534" class="formula">HMAC(K,m)=H((K' xor opad)||H((K' xor ipad)||m))</text>
+  <text x="934" y="562" class="text">Anchor Sink 预留透明日志</text>
+  <text x="934" y="588" class="tiny">JSONL 事实源 + manifest + SQLite 查询</text>
+
+  <rect x="390" y="690" width="500" height="80" class="box"/>
+  <text x="430" y="724" class="label">可追溯安全闭环</text>
+  <text x="430" y="752" class="text">用户意图 -> 护栏决策 -> 工具调用 -> 审批 -> 执行计划 -> 审计链 -> 外部锚点</text>
+
+  <path class="line" d="M300 215 C330 215 340 215 370 215"/>
+  <path class="line" d="M630 215 C660 215 680 215 710 215"/>
+  <path class="line" d="M970 215 C1000 215 1010 215 1040 215"/>
+  <path class="line" d="M840 310 C750 380 475 380 365 430"/>
+  <path class="line" d="M500 520 C530 520 540 520 570 520"/>
+  <path class="line" d="M830 520 C860 520 870 520 900 520"/>
+  <path class="dash" d="M1050 610 C960 665 845 680 720 690"/>
+  <path class="dash" d="M365 610 C430 655 500 675 570 690"/>
+</svg>

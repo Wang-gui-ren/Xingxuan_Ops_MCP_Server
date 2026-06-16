@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">智能运维安全执行全流程示意图</title>
+  <desc id="desc">展示用户请求经由 AstrBot、璇玑护栏、自研 MCP、审批账本、受限执行代理和审计证据链的完整流程。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edf6ff"/>
+      <stop offset="58%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef8f4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="greenArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#0f9f80"/>
+    </marker>
+    <style>
+      .title { font: 700 30px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #102033; }
+      .subtitle { font: 500 16px "Microsoft YaHei", Arial, sans-serif; fill: #526174; }
+      .lane { fill: rgba(255,255,255,0.52); stroke: #d5e2f1; stroke-width: 1.2; rx: 22; }
+      .box { fill: #ffffff; stroke: #c8d8ea; stroke-width: 1.5; rx: 18; filter: url(#shadow); }
+      .boxBlue { fill: #f5faff; stroke: #9ec5ff; stroke-width: 1.6; rx: 18; filter: url(#shadow); }
+      .boxGreen { fill: #f3fff8; stroke: #8bd4aa; stroke-width: 1.6; rx: 18; filter: url(#shadow); }
+      .boxAmber { fill: #fffaf0; stroke: #f1c46a; stroke-width: 1.6; rx: 18; filter: url(#shadow); }
+      .label { font: 700 20px "Microsoft YaHei", Arial, sans-serif; fill: #12243a; }
+      .text { font: 500 14px "Microsoft YaHei", Arial, sans-serif; fill: #536172; }
+      .tiny { font: 500 12px "Microsoft YaHei", Arial, sans-serif; fill: #6a7688; }
+      .tag { fill: #e8f1ff; stroke: #9ec5ff; stroke-width: 1; rx: 12; }
+      .tagtext { font: 700 12px "Microsoft YaHei", Arial, sans-serif; fill: #1d5fbf; }
+      .warn { fill: #fff4d8; stroke: #f1c46a; stroke-width: 1; rx: 12; }
+      .warntext { font: 700 12px "Microsoft YaHei", Arial, sans-serif; fill: #8a5a00; }
+      .line { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .gline { stroke: #0f9f80; stroke-width: 2.4; fill: none; marker-end: url(#greenArrow); }
+      .dline { stroke: #0f9f80; stroke-width: 2; fill: none; stroke-dasharray: 7 6; marker-end: url(#greenArrow); }
+    </style>
+  </defs>
+
+  <rect width="1280" height="860" fill="url(#bg)"/>
+  <text x="60" y="62" class="title">智能运维安全执行全流程示意图</text>
+  <text x="60" y="92" class="subtitle">从用户请求到审计证据链：AstrBot 编排、璇玑护栏、自研 MCP、审批账本与受限执行代理协同闭环</text>
+
+  <rect x="50" y="130" width="1180" height="500" class="lane"/>
+  <text x="78" y="165" class="tiny">主流程</text>
+
+  <rect x="70" y="210" width="140" height="118" class="box"/>
+  <text x="102" y="248" class="label">用户请求</text>
+  <text x="100" y="278" class="text">自然语言发起</text>
+  <text x="100" y="304" class="tiny">排障 / 变更 / 审批</text>
+
+  <rect x="240" y="210" width="160" height="118" class="boxBlue"/>
+  <text x="275" y="248" class="label">AstrBot</text>
+  <text x="270" y="278" class="text">会话编排与工具注册</text>
+  <text x="270" y="304" class="tiny">入口桥接 / 插件生命周期</text>
+
+  <rect x="435" y="210" width="175" height="118" class="boxBlue"/>
+  <text x="463" y="248" class="label">璇玑输入护栏</text>
+  <text x="463" y="278" class="text">识别注入与高风险意图</text>
+  <rect x="463" y="292" width="58" height="22" class="tag"/>
+  <text x="476" y="307" class="tagtext">allow</text>
+  <rect x="528" y="292" width="62" height="22" class="warn"/>
+  <text x="542" y="307" class="warntext">block</text>
+
+  <rect x="645" y="210" width="150" height="118" class="box"/>
+  <text x="680" y="248" class="label">Agent 规划</text>
+  <text x="675" y="278" class="text">是否调用 MCP 工具</text>
+  <text x="675" y="304" class="tiny">模型生成计划与下一步</text>
+
+  <rect x="830" y="210" width="175" height="118" class="boxBlue"/>
+  <text x="853" y="248" class="label">璇玑工具输入护栏</text>
+  <text x="853" y="278" class="text">复核工具名与参数</text>
+  <text x="853" y="304" class="tiny">防参数污染与越权</text>
+
+  <rect x="1040" y="210" width="160" height="118" class="boxGreen"/>
+  <text x="1070" y="248" class="label">自研 MCP</text>
+  <text x="1060" y="278" class="text">命令 / 路径 / 权限校验</text>
+  <text x="1060" y="304" class="tiny">low / medium / high / critical</text>
+
+  <rect x="140" y="395" width="170" height="118" class="boxAmber"/>
+  <text x="170" y="433" class="label">审批账本</text>
+  <text x="168" y="463" class="text">高风险动作进入审批</text>
+  <text x="168" y="489" class="tiny">approval_id / scope_hash</text>
+
+  <rect x="365" y="395" width="175" height="118" class="boxGreen"/>
+  <text x="392" y="433" class="label">受限执行代理</text>
+  <text x="392" y="463" class="text">dry-run 或固定模板执行</text>
+  <text x="392" y="489" class="tiny">最小权限 / 平台适配</text>
+
+  <rect x="595" y="395" width="175" height="118" class="boxBlue"/>
+  <text x="622" y="433" class="label">工具输出护栏</text>
+  <text x="622" y="463" class="text">脱敏与结果净化</text>
+  <text x="622" y="489" class="tiny">防回流注入与泄露</text>
+
+  <rect x="825" y="395" width="175" height="118" class="boxBlue"/>
+  <text x="865" y="433" class="label">输出护栏</text>
+  <text x="858" y="463" class="text">安全总结后返回用户</text>
+  <text x="858" y="489" class="tiny">危险指导与 PII 再过滤</text>
+
+  <rect x="1055" y="395" width="145" height="118" class="box"/>
+  <text x="1088" y="433" class="label">最终回复</text>
+  <text x="1082" y="463" class="text">人可读、可执行解释</text>
+  <text x="1082" y="489" class="tiny">不直接越权改系统</text>
+
+  <path class="line" d="M210 269 C222 269 228 269 240 269"/>
+  <path class="line" d="M400 269 C415 269 420 269 435 269"/>
+  <path class="line" d="M610 269 C625 269 630 269 645 269"/>
+  <path class="line" d="M795 269 C810 269 815 269 830 269"/>
+  <path class="line" d="M1005 269 C1018 269 1025 269 1040 269"/>
+
+  <path class="line" d="M1115 328 C1115 360 220 360 225 395"/>
+  <text x="1018" y="350" class="tiny">high 风险需要审批</text>
+
+  <path class="line" d="M1120 328 C1120 360 460 360 452 395"/>
+  <text x="942" y="372" class="tiny">low / medium 进入 dry-run 或受限执行</text>
+
+  <path class="line" d="M310 454 C332 454 342 454 365 454"/>
+  <path class="line" d="M540 454 C566 454 574 454 595 454"/>
+  <path class="line" d="M770 454 C796 454 804 454 825 454"/>
+  <path class="line" d="M1000 454 C1023 454 1030 454 1055 454"/>
+
+  <rect x="70" y="680" width="1140" height="120" class="box"/>
+  <text x="102" y="724" class="label">审计与证据链</text>
+  <text x="102" y="754" class="text">trace_id 串联护栏、审批、执行与回复；JSONL 记录关键事件；HMAC 与 Anchor Sink 提供外部可复核摘要</text>
+  <text x="102" y="780" class="tiny">输入护栏审计 / 工具护栏审计 / MCP guardrail_decision / approval ledger / execution result / anchor event</text>
+
+  <path class="dline" d="M492 328 C492 560 260 620 260 680"/>
+  <path class="dline" d="M918 328 C918 545 480 620 480 680"/>
+  <path class="dline" d="M1120 328 C1120 560 720 620 720 680"/>
+  <path class="dline" d="M452 513 C452 610 900 620 900 680"/>
+  <path class="dline" d="M912 513 C912 610 1080 620 1080 680"/>
+
+  <rect x="930" y="715" width="90" height="24" class="tag"/>
+  <text x="950" y="731" class="tagtext">trace_id</text>
+  <rect x="1030" y="715" width="90" height="24" class="tag"/>
+  <text x="1048" y="731" class="tagtext">event_hash</text>
+  <rect x="1130" y="715" width="70" height="24" class="warn"/>
+  <text x="1148" y="731" class="warntext">anchor</text>
+</svg>

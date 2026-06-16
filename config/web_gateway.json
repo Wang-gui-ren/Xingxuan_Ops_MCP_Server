@@ -1,0 +1,19 @@
+{
+  "schema_version": "web-gateway-options-v1",
+  "features": {
+    "enable_approval_console": true,
+    "enable_config_admin_console": true,
+    "enable_mutation_apis": true,
+    "enable_read_apis": true,
+    "show_api_index": true,
+    "show_gateway_settings": true
+  },
+  "security": {
+    "require_admin_token_for_mutation": true
+  },
+  "ui": {
+    "default_page": "approvals",
+    "density": "compact",
+    "style": "xingxuan_mcp"
+  }
+}

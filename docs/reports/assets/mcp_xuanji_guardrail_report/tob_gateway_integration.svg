@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">ToB 网关、AstrBot 与 MCP 联动</title>
+  <desc id="desc">展示 AstrBot /approvals 命令、ToB B/S 网关页面、MCP 工具和审计生产化接口之间的关系。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edf6ff"/>
+      <stop offset="100%" stop-color="#f9fbff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#16324f" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .title { font: 700 30px "Microsoft YaHei", Arial, sans-serif; fill: #102033; }
+      .subtitle { font: 500 16px "Microsoft YaHei", Arial, sans-serif; fill: #536172; }
+      .box { fill: #ffffff; stroke: #c8d8ea; stroke-width: 1.5; rx: 18; filter: url(#shadow); }
+      .page { fill: #f5faff; stroke: #9ec5ff; stroke-width: 1.7; rx: 18; filter: url(#shadow); }
+      .api { fill: #f4fff8; stroke: #85d6a8; stroke-width: 1.7; rx: 16; }
+      .label { font: 700 21px "Microsoft YaHei", Arial, sans-serif; fill: #14243a; }
+      .text { font: 500 15px "Microsoft YaHei", Arial, sans-serif; fill: #526174; }
+      .tiny { font: 500 13px "Microsoft YaHei", Arial, sans-serif; fill: #667386; }
+      .line { stroke: #2563eb; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .gline { stroke: #0f9f80; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1280" height="760" fill="url(#bg)"/>
+  <text x="60" y="62" class="title">ToB B/S 审批与配置网关</text>
+  <text x="60" y="92" class="subtitle">B/S 前端是人工审批和配置操作台，不替代 MCP 核心执行引擎</text>
+
+  <rect x="70" y="150" width="240" height="145" class="box"/>
+  <text x="105" y="194" class="label">AstrBot</text>
+  <text x="105" y="228" class="text">/approvals 返回网关 URL</text>
+  <text x="105" y="256" class="text">/approvals card 返回入口卡片</text>
+
+  <rect x="390" y="130" width="270" height="185" class="box"/>
+  <text x="425" y="174" class="label">托管式 Web Gateway</text>
+  <text x="425" y="208" class="text">127.0.0.1:8765</text>
+  <text x="425" y="236" class="text">读接口可选暴露</text>
+  <text x="425" y="264" class="text">写接口 admin token 保护</text>
+
+  <rect x="760" y="100" width="205" height="130" class="page"/>
+  <text x="790" y="144" class="label">审批台</text>
+  <text x="790" y="178" class="text">审批队列</text>
+  <text x="790" y="206" class="text">grant / stop</text>
+
+  <rect x="1005" y="100" width="205" height="130" class="page"/>
+  <text x="1035" y="144" class="label">配置管理</text>
+  <text x="1035" y="178" class="text">身份可信配置</text>
+  <text x="1035" y="206" class="text">审计生产化面板</text>
+
+  <rect x="760" y="285" width="205" height="130" class="page"/>
+  <text x="790" y="329" class="label">网关设置</text>
+  <text x="790" y="363" class="text">页面开关</text>
+  <text x="790" y="391" class="text">API 开关</text>
+
+  <rect x="1005" y="285" width="205" height="130" class="page"/>
+  <text x="1035" y="329" class="label">审计生产化</text>
+  <text x="1035" y="363" class="text">索引 / 搜索</text>
+  <text x="1035" y="391" class="text">轮转 / 锚点</text>
+
+  <rect x="110" y="475" width="280" height="150" class="api"/>
+  <text x="145" y="520" class="label">MCP 工具层</text>
+  <text x="145" y="554" class="text">approval_tools / audit_tools</text>
+  <text x="145" y="582" class="text">config_admin / gateway_options</text>
+
+  <rect x="500" y="475" width="280" height="150" class="api"/>
+  <text x="535" y="520" class="label">受控写 API</text>
+  <text x="535" y="554" class="text">/api/approvals/decision</text>
+  <text x="535" y="582" class="text">/api/config/update</text>
+
+  <rect x="890" y="475" width="280" height="150" class="api"/>
+  <text x="925" y="520" class="label">审计 API</text>
+  <text x="925" y="554" class="text">/api/audit-production</text>
+  <text x="925" y="582" class="text">/api/audit/rotate / sync-anchor</text>
+
+  <path class="line" d="M310 222 C340 222 360 222 390 222"/>
+  <path class="line" d="M660 180 C700 160 720 150 760 150"/>
+  <path class="line" d="M660 220 C810 170 930 160 1005 160"/>
+  <path class="line" d="M660 260 C720 305 735 330 760 350"/>
+  <path class="line" d="M660 280 C835 310 940 330 1005 350"/>
+  <path class="gline" d="M525 315 C460 390 345 420 250 475"/>
+  <path class="gline" d="M862 415 C790 450 720 470 640 475"/>
+  <path class="gline" d="M1108 415 C1085 440 1055 462 1030 475"/>
+  <text x="80" y="690" class="tiny">设计边界：前端只提供人工审批和配置入口，所有业务落账、审计、执行校验仍由 MCP 工具与后端策略完成。</text>
+</svg>
