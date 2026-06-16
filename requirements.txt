@@ -1,0 +1,19 @@
+# 星璇运维 MCP Server 依赖
+# Python >= 3.11
+
+# MCP 协议核心
+mcp>=1.8.0
+
+# 系统工具
+psutil>=5.9.8
+
+# 数据验证
+pydantic>=2.7.0
+
+# 配置文件解析
+PyYAML>=6.0.0
+
+# 开发依赖（可选）
+# pytest>=7.0.0
+# pytest-asyncio>=0.21.0
+# ruff>=0.1.0
