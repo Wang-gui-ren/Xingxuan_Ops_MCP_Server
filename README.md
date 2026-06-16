@@ -1,5 +1,10 @@
 # 星璇运维 MCP (Xingxuan MCP)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![MCP Protocol](https://img.shields.io/badge/MCP-1.8+-green.svg)](https://modelcontextprotocol.io)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 > 一个面向生产环境的安全运维 MCP Server，为 AI Agent 提供结构化运维工具、多重防护栏和完整审计链。
 
 **星璇运维 MCP** 是一个基于 [Model Context Protocol](https://modelcontextprotocol.io) 的运维工具服务器，专为需要安全执行运维操作的 AI Agent 设计。它不是简单地暴露 shell 命令，而是提供：
@@ -14,8 +19,26 @@
 
 ### 1. 安装
 
+**环境要求**：Python >= 3.11
+
+**方式 1：使用 pip 安装（推荐）**
 ```bash
+# 克隆仓库
+git clone https://github.com/Wang-gui-ren/Xingxuan_Ops_MCP_Server.git
+cd Xingxuan_Ops_MCP_Server
+
+# 安装依赖（可编辑模式）
 pip install -e .
+```
+
+**方式 2：仅安装依赖**
+```bash
+pip install -r requirements.txt
+```
+
+**方式 3：开发环境（包含测试和代码质量工具）**
+```bash
+pip install -r requirements-dev.txt
 ```
 
 ### 2. 启动 MCP Server
